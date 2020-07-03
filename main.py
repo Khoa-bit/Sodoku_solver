@@ -1,3 +1,32 @@
+class SodokuSolver:
+    def __init__(self):
+        self.x = 3
+        self.y = 5
+
+    def chk_box(self):
+        global sodoku, chunks
+        tmp_col, tmp_row = [], []
+        for chunk in chunks:
+            if self.x in chunk:
+                tmp_col = chunk
+            if self.y in chunk:
+                tmp_row = chunk
+
+        for row in tmp_row:
+            for col in tmp_col:
+                print(sodoku[row][col], end=' ')
+
+    def chk_row(self):
+        global sodoku
+        for i in range(9):
+            print(sodoku[self.y][i], end=' ')
+
+    def chk_col(self):
+        global sodoku
+        for i in range(9):
+            print(sodoku[i][self.x], end=' ')
+
+
 sodoku = [
     '5 3 _ _ 7 _ _ _ _ '.split(),
     '6 _ _ 1 9 5 _ _ _ '.split(),
@@ -16,17 +45,11 @@ chunks = [
     [6, 7, 8]
 ]
 
-def chk_row(nth_row):
-    for i in range(9):
-        print(sodoku[nth_row][i], end=' ')
-
-
-def chk_col(nth_col):
-    for i in range(9):
-        print(sodoku[i][nth_col], end=' ')
-
 
 """Demo Section"""
-chk_row(1)
+slvr = SodokuSolver()
+slvr.chk_col()
 print()
-chk_col(0)
+slvr.chk_row()
+print()
+slvr.chk_box()
