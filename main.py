@@ -25,7 +25,7 @@ class SodokuSolver:
         finished = False
         while not finished:
             show_sodoku()
-            sleep(2)
+            sleep(1)
             finished = True
             for self.y in range(9):
                 for self.x in range(9):
@@ -43,11 +43,13 @@ class SodokuSolver:
                         sodoku[self.y][self.x] = possible_sol
             print('===================================')
 
-    # def validate(self):
-    #     valid = True
-    #     for y in range(9):
-    #         for x in range(9):
-    #             if valid_chunk(self.at_box())
+    def validate(self):
+        for self.y in range(9):
+            for self.x in range(9):
+                if not valid_chunk(self.at_box()) or not valid_chunk(self.at_row()) or not valid_chunk((self.at_col())):
+                    print('Invalid at: {0}, {1}'.format(self.x, self.y))
+                    return False
+        return True
 
     def at_box(self):
         global sodoku, chunks
@@ -94,15 +96,15 @@ class SodokuSolver:
 
 
 sodoku = [
-    '5 3 _ _ 7 _ _ _ _ '.split(),
-    '6 _ _ 1 9 5 _ _ _ '.split(),
-    '_ 9 8 _ _ _ _ 6 _ '.split(),
-    '8 _ _ _ 6 _ _ _ 3 '.split(),
-    '4 _ _ 8 _ 3 _ _ 1 '.split(),
-    '7 _ _ _ 2 _ _ _ 6 '.split(),
-    '_ 6 _ _ _ _ 2 8 _ '.split(),
-    '_ _ _ 4 1 9 _ _ 5 '.split(),
-    '_ _ _ _ 8 _ _ 7 9 '.split(),
+    '7 _ _ _ _ 1 _ _ 5'.split(),
+    '_ _ 8 3 _ _ _ _ _'.split(),
+    '3 5 6 _ 4 9 _ 1 _'.split(),
+    '_ _ _ 7 6 4 1 _ _'.split(),
+    '_ _ _ _ 9 _ 4 _ _'.split(),
+    '_ 7 _ _ _ _ _ _ 3'.split(),
+    '_ 6 3 _ _ _ _ _ _'.split(),
+    '_ _ _ 9 _ _ _ 3 8'.split(),
+    '1 8 _ _ _ _ _ _ _'.split(),
 ]
 
 chunks = [
@@ -111,8 +113,12 @@ chunks = [
     [6, 7, 8]
 ]
 
-correct = set([x for x in range(1, 10)])
+correct = set([str(x) for x in range(1, 10)])
 
 """Demo Section"""
 slvr = SodokuSolver()
 slvr.solve()
+if slvr.validate():
+    print('Valid! :3')
+else:
+    print('Invalid! :(')
