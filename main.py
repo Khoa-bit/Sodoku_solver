@@ -1,5 +1,6 @@
 from time import sleep
 
+
 def show_sodoku():
     for y in range(9):
         print(sodoku[y])
@@ -42,13 +43,13 @@ class SodokuSolver:
                         sodoku[self.y][self.x] = possible_sol
             print('===================================')
 
-    def validate(self):
-        valid = True
-        for y in range(9):
-            for x in range(9):
-                if self.chk_box()
+    # def validate(self):
+    #     valid = True
+    #     for y in range(9):
+    #         for x in range(9):
+    #             if valid_chunk(self.at_box())
 
-    def chk_box(self, num):
+    def at_box(self):
         global sodoku, chunks
         tmp_col, tmp_row = [], []
         for chunk in chunks:
@@ -58,31 +59,36 @@ class SodokuSolver:
                 tmp_row = chunk
 
         box = [sodoku[row][col] for row in tmp_row for col in tmp_col]
-        if num not in box:
+        return box
+
+    def chk_box(self, num):
+        at_box = self.at_box()
+        if num not in at_box:
             return True
-        elif '_' not in box:
-            return valid_chunk(box)
         else:
             return False
 
-
-    def chk_row(self, num):
+    def at_row(self):
         global sodoku
         row = [sodoku[self.y][i] for i in range(9)]
-        if num not in row:
+        return row
+
+    def chk_row(self, num):
+        at_row = self.at_row()
+        if num not in at_row:
             return True
-        elif '_' not in row:
-            return valid_chunk(row)
         else:
             return False
 
-    def chk_col(self, num):
+    def at_col(self):
         global sodoku
         col = [sodoku[i][self.x] for i in range(9)]
-        if num not in col:
+        return col
+
+    def chk_col(self, num):
+        at_col = self.at_col()
+        if num not in at_col:
             return True
-        elif '_' not in col:
-            return valid_chunk(col)
         else:
             return False
 
@@ -107,8 +113,6 @@ chunks = [
 
 correct = set([x for x in range(1, 10)])
 
-
 """Demo Section"""
 slvr = SodokuSolver()
-slvr.solve()
 slvr.solve()
