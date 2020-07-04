@@ -1,5 +1,4 @@
 import assets
-from time import sleep
 from copy import deepcopy
 
 
@@ -11,7 +10,7 @@ class Solver:
         self.possibilities = []
 
     def __repr__(self):
-        return '<x: {0!r}, y: {1!r}, possibilities: {2!r}>, map: {3!r}'\
+        return '<x: {0!r}, y: {1!r}, possibilities: {2!r}>, map: {3!r}' \
             .format(self.x, self.y, self.possibilities, self.s_map)
 
     def run(self):
@@ -51,8 +50,6 @@ class Solver:
         while changes:
             changes = False
             self.possibilities = []
-            # show(self.x, self.y)
-            # sleep(2)
             for self.y in range(9):
                 for self.x in range(9):
                     if self.s_map[self.y][self.x] == '_':
@@ -60,18 +57,13 @@ class Solver:
                         length = len(possibilities)
                         if length == 1:
                             self.s_map[self.y][self.x] = possibilities[0]
-                            # print('Changed!')
                             changes = True
                         elif length <= min_possibilities:
                             min_possibilities = length
                             self.possibilities = [[self.x, self.y], possibilities]
-        # show(self.x, self.y)
-        # print('NO Changed!')
         if len(self.possibilities) != 0 and len(self.possibilities[1]) != 0:
-            # print('BF false')
             return False
         else:
-            # print('BF true')
             return True
 
     def test_possibilities(self):
@@ -81,7 +73,6 @@ class Solver:
             test_s_map[test_y][test_x] = possibility
             print('Test: Possibilities {0!r}'.format(self.possibilities))
             print('Test: Replaced {0!r} at ({1}, {2})'.format(possibility, test_x, test_y))
-            # sleep(2)
             test_solver = Solver(test_s_map)
             if test_solver.run():
                 return test_solver.s_map
@@ -96,7 +87,13 @@ class Solver:
         print('Valid')
         return True
 
-    def show(self):
-        print('At: ({0}, {1})'.format(self.x, self.y))
+    def show_solution(self):
+        print("====================SODOKU====================")
         for y in range(9):
             print(assets.sodoku[y])
+        if assets.sodoku == self.s_map:
+            print('==> UNSOLVABLE :( <==')
+        else:
+            print("===================SOLUTION===================")
+            for y in range(9):
+                print(self.s_map[y])

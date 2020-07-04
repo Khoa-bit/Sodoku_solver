@@ -2,4 +2,4 @@ from Solver import Solver
 
 solver = Solver()
 solver.run()
-solver.show()
+solver.show_solution()
