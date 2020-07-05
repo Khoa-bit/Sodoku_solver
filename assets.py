@@ -1,17 +1,29 @@
-# Template: _ _ _ _ _ _ _ _ _
+# Template
+# sodoku = [
+#     '_ _ _ _ _ _ _ _ _'.split(),
+#     '_ _ _ _ _ _ _ _ _'.split(),
+#     '_ _ _ _ _ _ _ _ _'.split(),
+#     '_ _ _ _ _ _ _ _ _'.split(),
+#     '_ _ _ _ _ _ _ _ _'.split(),
+#     '_ _ _ _ _ _ _ _ _'.split(),
+#     '_ _ _ _ _ _ _ _ _'.split(),
+#     '_ _ _ _ _ _ _ _ _'.split(),
+#     '_ _ _ _ _ _ _ _ _'.split()
+# ]
+
 sodoku = [
-    '_ _ _ _ _ _ _ _ _'.split(),
-    '_ _ _ _ _ _ _ _ _'.split(),
-    '_ _ _ _ _ _ _ _ _'.split(),
-    '_ _ _ _ _ _ _ _ _'.split(),
-    '_ _ _ _ _ _ _ _ _'.split(),
-    '_ _ _ _ _ _ _ _ _'.split(),
-    '_ _ _ _ _ _ _ _ _'.split(),
-    '_ _ _ _ _ _ _ _ _'.split(),
-    '_ _ _ _ _ _ _ _ _'.split()
+    '6 _ _ _ _ _ _ _ _'.split(),
+    '_ 1 _ 6 _ 2 9 _ _'.split(),
+    '_ _ _ _ _ _ _ 2 4'.split(),
+    '8 _ _ 3 4 _ _ _ _'.split(),
+    '_ _ 4 1 _ 6 _ _ _'.split(),
+    '_ 9 _ _ _ _ _ _ _'.split(),
+    '_ 7 _ _ _ 1 8 _ _'.split(),
+    '_ _ _ 8 5 _ _ _ _'.split(),
+    '_ _ _ _ 3 _ 4 5 9'.split()
 ]
 
-# Easy
+# Easy (Brute Force only)
 # sodoku = [
 #     '_ _ _ 1 _ 7 3 _ _'.split(),
 #     '_ _ 7 _ 2 8 5 _ _'.split(),
@@ -37,7 +49,7 @@ sodoku = [
 #     ['5', '8', '9', '2', '1', '3', '6', '4', '7']
 # ]
 
-# Expert
+# Expert (Brute Force and Test possibilities)
 # sodoku = [
 #     '6 _ _ _ _ _ _ _ _'.split(),
 #     '_ 1 _ 6 _ 2 9 _ _'.split(),
