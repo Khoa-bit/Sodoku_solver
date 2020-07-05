@@ -1,10 +1,11 @@
 # Sodoku Solver
 Solving Sodoku by testing as many possibilities as needed.
 
-###### To try out 'Soduku Solver':
-1) Insert your sodoku puzzle in asset.py (Sodoku map must be an array name `sodoku`)
+##### To try out 'Soduku Solver':
+**1) Insert your sodoku puzzle in asset.py (Sodoku map must be an array name `sodoku`)**
 ![Insert](Gifs/Insert_sodoku.gif)
-2) Run main.py
+
+**2) Run main.py**
 ![Run](Gifs/Run.gif)
 
 #### **What I have learned:**
