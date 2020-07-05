@@ -2,7 +2,7 @@
 Solving Sodoku by testing as many possibilities as needed.
 
 ##### To try out 'Soduku Solver':
-**1) Insert your sodoku puzzle in asset.py (Sodoku map must be an array name `sodoku`)**
+**1) Insert your sodoku puzzle in assets.py (Sodoku map must be an array name `sodoku`)**
 ___
 ![Insert](Gifs/Insert_sodoku.gif)
 
